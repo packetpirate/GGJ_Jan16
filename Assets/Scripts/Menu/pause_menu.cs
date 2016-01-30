@@ -20,4 +20,8 @@ public class pause_menu : MonoBehaviour {
 	public void StartLevel(){
 		Application.LoadLevel (1);
 	}
+
+	public void StartMainMenu(){
+		Application.LoadLevel (2);
+	}
 }

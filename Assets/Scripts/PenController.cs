@@ -5,6 +5,8 @@ using System.Collections.Generic;
 public class PenController : MonoBehaviour {
 	private int cuties;
 
+	public int cutieCount = 5;
+
 	public GameObject sheep;
 
 	// Use this for initialization
@@ -19,6 +21,7 @@ public class PenController : MonoBehaviour {
 			List<string> cuties = other.gameObject.GetComponent<PlayerItems>().GetCuties();
 			foreach(string cutie in cuties) {
 				Instantiate(sheep, pos, Quaternion.identity);
+				cutieCount -= 1;
 			}
 			other.gameObject.GetComponent<PlayerItems>().EmptyCuties();
 		}
@@ -26,6 +29,9 @@ public class PenController : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-	
+		if (cutieCount <= 0) {
+			
+			Application.LoadLevel (3);	
+		}
 	}
 }
