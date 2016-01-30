@@ -45,8 +45,6 @@ public class PlayerItems : MonoBehaviour {
 		}
 
 		invulnerable_time -= Time.deltaTime;
-
-		cuties = new List<string>();
 	}
 
 	public void Start(){
@@ -98,6 +96,7 @@ public class PlayerItems : MonoBehaviour {
 			//heart.GetComponent<Image>().enabled = true;
 		} 
 
+		cuties = new List<string>();
 	}
 
 	//=========
@@ -270,7 +269,14 @@ public class PlayerItems : MonoBehaviour {
 			}
 		}
 		cuties.Add(name);
-		Debug.Log(name + " captured!");
-		Debug.Log("You have " + cuties.Count + " cuties!");
+	}
+
+	public List<string> GetCuties() {
+		Debug.Log ("There are " + cuties.Count + " cuties.");
+		return new List<string>(cuties);
+	}
+
+	public void EmptyCuties() {
+		cuties.Clear();
 	}
 }
