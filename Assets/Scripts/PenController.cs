@@ -11,7 +11,7 @@ public class PenController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+		cuties = 0;
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
