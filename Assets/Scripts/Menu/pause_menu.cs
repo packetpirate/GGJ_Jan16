@@ -24,4 +24,8 @@ public class pause_menu : MonoBehaviour {
 	public void StartMainMenu(){
 		Application.LoadLevel (2);
 	}
+
+	public void StartCreditsScene(){
+		Application.LoadLevel (4);
+	}
 }
