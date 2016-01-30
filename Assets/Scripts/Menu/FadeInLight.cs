@@ -22,7 +22,7 @@ public class FadeInLight : MonoBehaviour {
 				Timer = 0;
 			} else {
 				// Display the menu button text.
-				PlayGameText.text = "Play Game";
+				// PlayGameText.text = "Play Game";
 			}
 		}
 	}
