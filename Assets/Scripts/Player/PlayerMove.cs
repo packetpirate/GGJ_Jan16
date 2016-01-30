@@ -4,6 +4,7 @@ using System.Collections;
 public class PlayerMove : MonoBehaviour {
 
 	public float speed = 40f;
+	public float cSpeed;
 
 	public Canvas pauseMenu;
 
@@ -16,7 +17,7 @@ public class PlayerMove : MonoBehaviour {
 		//m_Items = GetComponent<PlayerItems> ();
 		playerRb2D = GetComponent<Rigidbody2D> ();
 		playerAnim = GetComponent<Animator>();
-
+		cSpeed = speed;
 	}
 
 	// Update is called once per frame
@@ -41,7 +42,7 @@ public class PlayerMove : MonoBehaviour {
 
 		//This moves him
 		playerAnim.SetBool ("attacking", false);
-		playerRb2D.AddForce(new Vector2(hor*speed, vert*speed));
+		playerRb2D.AddForce(new Vector2(hor*cSpeed, vert*cSpeed));
 
 		// sets his animation
 		if (hor == 0 && vert == 0) {

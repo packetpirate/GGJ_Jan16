@@ -59,5 +59,6 @@ public class PlayerItems : MonoBehaviour {
 
 	public void EmptyCuties() {
 		cuties.Clear();
+		GameObject.Find("Player").GetComponent<PlayerMove>().cSpeed = GameObject.Find("Player").GetComponent<PlayerMove>().speed;
 	}
 }
