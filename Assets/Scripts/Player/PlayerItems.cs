@@ -85,13 +85,13 @@ public class PlayerItems : MonoBehaviour {
 		}
 
 		for (int heart_coun = 1; heart_coun < 17; heart_coun ++) {
-			RectTransform heart = (RectTransform) heart_panel.transform.FindChild("heart" + heart_coun.ToString());
-			heart.GetComponent<Image>().enabled = false;
+			//RectTransform heart = (RectTransform) heart_panel.transform.FindChild("heart" + heart_coun.ToString());
+			//heart.GetComponent<Image>().enabled = false;
 		}
 
 		for (int heart_counter = 1; heart_counter <= health_container; heart_counter ++) {
-			RectTransform heart = (RectTransform) heart_panel.transform.FindChild("heart" + heart_counter.ToString());
-			heart.GetComponent<Image>().enabled = true;
+			//RectTransform heart = (RectTransform) heart_panel.transform.FindChild("heart" + heart_counter.ToString());
+			//heart.GetComponent<Image>().enabled = true;
 		} 
 
 	}
