@@ -30,7 +30,6 @@ public class PenController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (cutieCount <= 0) {
-			
 			Application.LoadLevel (3);	
 		}
 	}
