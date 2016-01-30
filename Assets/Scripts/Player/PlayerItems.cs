@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 
 public class PlayerItems : MonoBehaviour {
 	// Player items
@@ -25,6 +26,8 @@ public class PlayerItems : MonoBehaviour {
 	private float invulnerable_time;
 	private bool invulnerable;
 
+	private List<string> cuties;
+
 	public void FixedUpdate(){
 		if (invulnerable_time >= 0) {
 			invulnerable = true;
@@ -43,6 +46,7 @@ public class PlayerItems : MonoBehaviour {
 
 		invulnerable_time -= Time.deltaTime;
 
+		cuties = new List<string>();
 	}
 
 	public void Start(){
@@ -257,4 +261,16 @@ public class PlayerItems : MonoBehaviour {
 		}
 	}
 
+	public void AddCutie(string name) {
+		int n;
+		int i = name.LastIndexOf('_');
+		if(i != -1) {
+			if(int.TryParse(name.Substring(i + 1), out n)) {
+				name = name.Remove(i);
+			}
+		}
+		cuties.Add(name);
+		Debug.Log(name + " captured!");
+		Debug.Log("You have " + cuties.Count + " cuties!");
+	}
 }
