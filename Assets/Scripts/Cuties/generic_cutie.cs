@@ -15,11 +15,15 @@ public class generic_cutie : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
-		PlayerInRange = true;
+		if(other.gameObject.tag == "Player") {
+			PlayerInRange = true;
+		}
 	}
 
 	void OnTriggerExit2D(Collider2D other) {
-		PlayerInRange = false;
+		if(other.gameObject.tag == "Player") {
+			PlayerInRange = false;
+		}
 	}
 
 	// Update is called once per frame

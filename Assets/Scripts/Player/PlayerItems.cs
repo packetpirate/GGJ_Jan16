@@ -262,17 +262,25 @@ public class PlayerItems : MonoBehaviour {
 
 	public void AddCutie(string name) {
 		int n;
+
+		// Check for numbers at the end of the object name.
 		int i = name.LastIndexOf('_');
 		if(i != -1) {
 			if(int.TryParse(name.Substring(i + 1), out n)) {
 				name = name.Remove(i);
 			}
 		}
+
+		// Check for (Clone) at the end of the object name.
+		i = name.IndexOf("(Clone)");
+		if(i != -1) {
+			name = name.Remove(i);
+		}
+
 		cuties.Add(name);
 	}
 
 	public List<string> GetCuties() {
-		Debug.Log ("There are " + cuties.Count + " cuties.");
 		return new List<string>(cuties);
 	}
 
