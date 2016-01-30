@@ -4,7 +4,8 @@ using System.Collections.Generic;
 
 public class PenController : MonoBehaviour {
 	private int cuties;
-
+	private float timer;
+	public float spawnTime = 5;
 	public int cutieCount = 5;
 
 	public GameObject sheep;
@@ -12,6 +13,7 @@ public class PenController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		cuties = 0;
+		timer = 0.0F;
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
@@ -28,9 +30,18 @@ public class PenController : MonoBehaviour {
 	}
 
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
+		timer += Time.deltaTime;
+
 		if (cutieCount <= 0) {
 			Application.LoadLevel (3);	
+		}
+
+		int numCuties = new List<GameObject>(GameObject.FindGameObjectsWithTag("cutie")).Count 
+			          + GameObject.Find("Player").GetComponent<PlayerItems>().GetCuties().Count;
+		if((numCuties < cutieCount) && (timer > spawnTime)) {
+			Instantiate(sheep, new Vector3(0.0F, 0.0F, 0.0F), Quaternion.identity);
+			timer = 0.0F;
 		}
 	}
 }

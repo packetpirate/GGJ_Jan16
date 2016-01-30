@@ -6,7 +6,7 @@ public class WolfAI : MonoBehaviour {
 	public float SPEED;
 	private bool CutieInRange;
 	private Rigidbody2D wolfRb2D;
-	private GameObject target;
+	public GameObject target;
 
 	// Use this for initialization
 	void Start () {
@@ -15,8 +15,8 @@ public class WolfAI : MonoBehaviour {
 		target = null;
 	}
 
-	void OnTriggerEnter2D(Collider2D other) {
-		if(other.gameObject.tag == "cutie") {
+	void OnTriggerStay2D(Collider2D other) {
+		if((other.gameObject.tag == "cutie") && (target == null)) {
 			CutieInRange = true;
 			target = other.gameObject;
 		}
@@ -28,11 +28,17 @@ public class WolfAI : MonoBehaviour {
 			target = null;
 		}
 	}
+
+	void OnCollisionEnter2D(Collision2D other) {
+		if(other.gameObject.tag == "cutie") {
+			Destroy(other.gameObject);
+		}
+	}
 	
 	// Update is called once per frame
 	void Update () {
 		// Chase current target cutie.
-		if(CutieInRange && target != null) {
+		if(CutieInRange && (target != null)) {
 			Vector3 tPos = target.transform.position;
 			Vector3 cPos = transform.position;
 			float tTheta = Mathf.Atan2((tPos.y - cPos.y), (tPos.x - cPos.x));

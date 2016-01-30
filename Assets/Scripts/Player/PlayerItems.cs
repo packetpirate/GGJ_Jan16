@@ -15,7 +15,7 @@ public class PlayerItems : MonoBehaviour {
 	public void FixedUpdate(){
 		for (int x = 1; x <= bagsize; x++) {
 			RectTransform heart = (RectTransform)bag_panel.transform.FindChild ("bag " + x.ToString ());
-			Debug.Log ("bag " + cuties.Count + " ");
+			//Debug.Log ("bag " + cuties.Count + " ");
 			if (x <= cuties.Count) { 
 				heart.GetComponent<Image> ().color = Color.black;
 			} else {
