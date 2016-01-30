@@ -1,4 +1,4 @@
-# GGJ_Jan16
+# Global Game Jam - January 2016
 Team: Darin Beaudreau, Griffin, Jasmine Moran, Samarth
 
 ## Description
