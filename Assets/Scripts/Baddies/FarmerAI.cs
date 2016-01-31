@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class FarmerAI : MonoBehaviour {
-	public float SPEED = 3;
+	public float SPEED = 7;
 	private bool PlayerInRange;
 	private Rigidbody2D farmerRb2D;
 	private GameObject player;
@@ -26,9 +26,15 @@ public class FarmerAI : MonoBehaviour {
 		direction = new Vector3(0.0F, 0.0F, 0.0F);
 	}
 
-	void OnTriggerEnter2D(Collider2D other) {
+	void OnTriggerStay2D(Collider2D other) {
 		if(other.gameObject.tag == "Player") {
-			PlayerInRange = true;
+			float ccount = other.gameObject.GetComponent<PlayerItems>().GetCuties().Count;
+			if (ccount > 0) {
+				PlayerInRange = true;
+			}
+			if (ccount == 0) {
+				PlayerInRange = false;
+			}
 		}
 	}
 

@@ -45,7 +45,8 @@ public class PenController : MonoBehaviour {
 		timer += Time.deltaTime;
 
 		if (cutieCount <= 0) {
-			Application.LoadLevel (3);	
+			//Application.LoadLevel (3);	
+			UnityEngine.SceneManagement.SceneManager.LoadScene ("End Cutscene");
 		}
 
 		int numCuties = new List<GameObject>(GameObject.FindGameObjectsWithTag("cutie")).Count 
