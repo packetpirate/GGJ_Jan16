@@ -50,6 +50,7 @@ public class WolfAI : MonoBehaviour {
 			direction.x = Mathf.Cos(Random.value * (Mathf.PI * 2)) * SPEED;
 			direction.y = Mathf.Sin((Random.value * (Mathf.PI * 2))) * SPEED;
 			timer = 0.0F;
+			target = null;
 		}
 
 		// Chase current target cutie.

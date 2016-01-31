@@ -10,6 +10,8 @@ public class PenController : MonoBehaviour {
 	private int maxCuties;
 
 	public GameObject sheep;
+	public GameObject piggy;
+	public GameObject chick;
 
 	// Use this for initialization
 	void Start() {
@@ -24,7 +26,15 @@ public class PenController : MonoBehaviour {
 			pos.y += 2.0F;
 			List<string> cuties = other.gameObject.GetComponent<PlayerItems>().GetCuties();
 			foreach(string cutie in cuties) {
-				Instantiate(sheep, pos, Quaternion.identity);
+				if(cutie.Contains("Pig")){
+					Instantiate(piggy, pos, Quaternion.identity);
+				}
+				else if(cutie.Contains("Chick")){
+					Instantiate(chick, pos, Quaternion.identity);
+				}
+				else {
+					Instantiate(sheep, pos, Quaternion.identity);
+				}
 				cutieCount -= 1;
 			}
 			other.gameObject.GetComponent<PlayerItems>().EmptyCuties();
@@ -43,7 +53,16 @@ public class PenController : MonoBehaviour {
 			          + GameObject.Find("Player").GetComponent<PlayerItems>().GetCuties().Count;
 		//Debug.Log(numCuties + " cuties in level!");
 		if((numCuties < maxCuties) && (timer > spawnTime)) {
-			Instantiate(sheep, new Vector3(0.0F, 0.0F, 0.0F), Quaternion.identity);
+			float randAnimal = Random.value;
+
+			if (randAnimal <= .3) {
+				Instantiate (sheep, new Vector3 (0.0F, 0.0F, 0.0F), Quaternion.identity);
+			}
+			else if (randAnimal <= .6) {
+				Instantiate (sheep, new Vector3 (0.0F, 0.0F, 0.0F), Quaternion.identity);
+			} else {
+				Instantiate (piggy, new Vector3 (0.0F, 0.0F, 0.0F), Quaternion.identity);
+			}
 			timer = 0.0F;
 		}
 	}

@@ -13,6 +13,8 @@ public class FarmerAI : MonoBehaviour {
 	private Vector3 direction;
 
 	public GameObject sheep;
+	public GameObject piggy;
+	public GameObject chick;
 
 	// Use this for initialization
 	void Start () {
@@ -49,6 +51,12 @@ public class FarmerAI : MonoBehaviour {
 										   0);
 				if(cutie == "Cutie_Sheep") {
 					Instantiate(sheep, cPos, Quaternion.identity);
+				}
+				else if(cutie == "Cutie_Piggy") {
+					Instantiate(piggy, cPos, Quaternion.identity);
+				}
+				else if(cutie == "Cutie_Chick") {
+					Instantiate(chick, cPos, Quaternion.identity);
 				}
 			}
 			other.gameObject.GetComponent<PlayerItems>().EmptyCuties();
