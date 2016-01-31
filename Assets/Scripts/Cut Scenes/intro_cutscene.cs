@@ -53,7 +53,8 @@ public class intro_cutscene : MonoBehaviour {
 
 
 		if (sceneLength > 8) {
-			Application.LoadLevel (1);	
+			UnityEngine.SceneManagement.SceneManager.LoadScene ("Level_1");
+			//Application.LoadLevel (1);	
 		}
 	
 	}
