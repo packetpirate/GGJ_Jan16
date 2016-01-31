@@ -7,8 +7,8 @@ public class PenController : MonoBehaviour {
 	private float timer;
 	public float spawnTime = 5;
 	public int cutieCount = 5;
-	public int level;
 	private int maxCuties;
+	public int level;
 
 	public GameObject sheep;
 	public GameObject piggy;
@@ -49,7 +49,7 @@ public class PenController : MonoBehaviour {
 			string nextScene = "";
 			switch(level) {
 				case 1:
-					nextScene = "Level_2";
+					nextScene = "level2card";
 					break;
 				case 2:
 				default:
