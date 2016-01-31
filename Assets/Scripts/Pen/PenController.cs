@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class PenController : MonoBehaviour {
-	private int cuties;
+
 	private float timer;
 	public float spawnTime = 5;
 	public int cutieCount = 5;
@@ -15,7 +15,6 @@ public class PenController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start() {
-		cuties = 0;
 		maxCuties = cutieCount;
 		timer = 0.0F;
 	}
@@ -59,7 +58,7 @@ public class PenController : MonoBehaviour {
 				Instantiate (sheep, new Vector3 (0.0F, 0.0F, 0.0F), Quaternion.identity);
 			}
 			else if (randAnimal <= .6) {
-				Instantiate (sheep, new Vector3 (0.0F, 0.0F, 0.0F), Quaternion.identity);
+				Instantiate (chick, new Vector3 (0.0F, 0.0F, 0.0F), Quaternion.identity);
 			} else {
 				Instantiate (piggy, new Vector3 (0.0F, 0.0F, 0.0F), Quaternion.identity);
 			}
