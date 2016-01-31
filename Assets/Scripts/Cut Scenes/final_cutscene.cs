@@ -93,6 +93,10 @@ public class final_cutscene : MonoBehaviour {
 				switched_penta4 = true;
 			}
 		}
+
+		else if (sceneLength > 30) {
+			UnityEngine.SceneManagement.SceneManager.LoadScene ("Credits Scene");
+		}
 	
 	}
 }
