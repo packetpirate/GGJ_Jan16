@@ -7,6 +7,7 @@ public class PenController : MonoBehaviour {
 	private float timer;
 	public float spawnTime = 5;
 	public int cutieCount = 5;
+	public int level;
 	private int maxCuties;
 
 	public GameObject sheep;
@@ -45,8 +46,17 @@ public class PenController : MonoBehaviour {
 		timer += Time.deltaTime;
 
 		if (cutieCount <= 0) {
-			//Application.LoadLevel (3);	
-			UnityEngine.SceneManagement.SceneManager.LoadScene ("End Cutscene");
+			string nextScene = "";
+			switch(level) {
+				case 1:
+					nextScene = "Level_2";
+					break;
+				case 2:
+				default:
+					nextScene = "End Cutscene";
+					break;
+			}
+			UnityEngine.SceneManagement.SceneManager.LoadScene(nextScene);
 		}
 
 		int numCuties = new List<GameObject>(GameObject.FindGameObjectsWithTag("cutie")).Count 
