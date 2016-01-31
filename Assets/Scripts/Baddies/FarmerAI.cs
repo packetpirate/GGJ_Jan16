@@ -8,6 +8,10 @@ public class FarmerAI : MonoBehaviour {
 	private Rigidbody2D farmerRb2D;
 	private GameObject player;
 
+	private float timer;
+	public float DirectionTimer;
+	private Vector3 direction;
+
 	public GameObject sheep;
 
 	// Use this for initialization
@@ -15,6 +19,9 @@ public class FarmerAI : MonoBehaviour {
 		PlayerInRange = false;
 		farmerRb2D = GetComponent<Rigidbody2D>();
 		player = GameObject.Find("Player");
+
+		timer = 0.0F;
+		direction = new Vector3(0.0F, 0.0F, 0.0F);
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
@@ -49,14 +56,24 @@ public class FarmerAI : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		if(PlayerInRange) {
+	void FixedUpdate() {
+		timer += Time.deltaTime;
+
+		if(timer > DirectionTimer) {
+			direction.x = Mathf.Cos(Random.value * (Mathf.PI * 2)) * SPEED;
+			direction.y = Mathf.Sin((Random.value * (Mathf.PI * 2))) * SPEED;
+			timer = 0.0F;
+		}
+
+		if (PlayerInRange) {
 			Vector3 pPos = player.transform.position;
 			Vector3 cPos = transform.position;
-			float pTheta = Mathf.Atan2((pPos.y - cPos.y), (pPos.x - cPos.x));
-			float dx = Mathf.Cos(pTheta) * SPEED;
-			float dy = Mathf.Sin(pTheta) * SPEED;
-			farmerRb2D.AddForce(new Vector2(dx, dy));
+			float pTheta = Mathf.Atan2 ((pPos.y - cPos.y), (pPos.x - cPos.x));
+			float dx = Mathf.Cos (pTheta) * SPEED;
+			float dy = Mathf.Sin (pTheta) * SPEED;
+			farmerRb2D.AddForce (new Vector2 (dx, dy));
+		} else {
+			farmerRb2D.AddForce(direction);
 		}
 	}
 }
