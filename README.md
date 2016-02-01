@@ -1,6 +1,7 @@
+# Global Game Jam - January 2016
+
 ![Cutie Thief Title](https://raw.githubusercontent.com/packetpirate/GGJ_Jan16/master/Assets/Textures/TitleCard.png)
 
-# Global Game Jam - January 2016
 Team: Darin Beaudreau, Griffin Nozell, Jasmine Moran, Zack Wong, Travis Jamison, Samarth
 
 ## Description
